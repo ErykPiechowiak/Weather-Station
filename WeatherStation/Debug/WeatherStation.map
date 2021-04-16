@@ -1,0 +1,1249 @@
+******************************************************************************
+                  TI ARM Linker PC v5.2.2                      
+******************************************************************************
+>> Linked Sun Jan 24 20:51:10 2021
+
+OUTPUT FILE NAME:   <WeatherStation.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00018165
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00018eb6  0002714a  R  X
+  SRAM                  20000000   00018000  0000125c  00016da4  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00018ec0   00018ec0    r-x
+  00000000    00000000    0000011c   0000011c    r-- .intvecs
+  0000011c    0000011c    0000d382   0000d382    r-- .const
+  0000d4a0    0000d4a0    0000b200   0000b200    r-x .text
+  000186a0    000186a0    00000244   00000244    r-- .constdata
+  000188e4    000188e4    000001e8   000001e8    r-x i.SysCtlClockGet
+  00018acc    00018acc    000000b0   000000b0    r-x i.GPIOPadConfigSet
+  00018b7c    00018b7c    00000054   00000054    r-x i.I2CMasterInitExpClk
+  00018bd0    00018bd0    00000050   00000050    r-x i.SysCtlPeripheralEnable
+  00018c20    00018c20    0000004a   0000004a    r-x i.SSIConfigSetExpClk
+  00018c6c    00018c6c    00000048   00000048    r-x i.GPIOPinConfigure
+  00018cb4    00018cb4    00000028   00000028    r-x i.GPIODirModeSet
+  00018cdc    00018cdc    0000001c   0000001c    r-x i.GPIOPinTypeADC
+  00018cf8    00018cf8    0000001c   0000001c    r-x i.GPIOPinTypeGPIOOutput
+  00018d14    00018d14    0000001c   0000001c    r-x i.GPIOPinTypeI2C
+  00018d30    00018d30    0000001c   0000001c    r-x i.GPIOPinTypeSSI
+  00018d4c    00018d4c    00000018   00000018    r-x i.I2CMasterErr
+  00018d64    00018d64    00000014   00000014    r-x i.SSIDataGetNonBlocking
+  00018d78    00018d78    00000010   00000010    r-x i.SysCtlGPIOAHBEnable
+  00018d88    00018d88    0000000e   0000000e    r-x i.SSIDataGet
+  00018d96    00018d96    0000000c   0000000c    r-x i.I2CMasterBusy
+  00018da2    00018da2    0000000c   0000000c    r-x i.SSIDataPut
+  00018dae    00018dae    0000000a   0000000a    r-x i.I2CMasterEnable
+  00018db8    00018db8    0000000a   0000000a    r-x i.SSIEnable
+  00018dc2    00018dc2    00000008   00000008    r-x i.I2CMasterSlaveAddrSet
+  00018dcc    00018dcc    00000006   00000006    r-x .emb_text
+  00018dd2    00018dd2    00000006   00000006    r-x i.GPIOPinWrite
+  00018dd8    00018dd8    00000004   00000004    r-x i.I2CMasterControl
+  00018ddc    00018ddc    00000004   00000004    r-x i.I2CMasterDataGet
+  00018de0    00018de0    00000004   00000004    r-x i.I2CMasterDataPut
+  00018de8    00018de8    000000d8   000000d8    r-- .cinit
+20000000    20000000    00001260   00000000    rw-
+  20000000    20000000    0000081c   00000000    rw- .bss
+  2000081c    2000081c    00000800   00000000    rw- .stack
+  20001020    20001020    00000240   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000011c     
+                  00000000    0000011c     lm3s9b95_startup_ccs.obj (.intvecs)
+
+.const     0    0000011c    0000d382     
+                  0000011c    00009636     background.obj (.const:.string:g_pucBackground)
+                  00009752    00000002     --HOLE-- [fill = 0]
+                  00009754    00000bdf     grlib-cm3.lib : fontcmss28b.obj (.const:g_pucCmss28bData)
+                  0000a333    00000001     --HOLE-- [fill = 0]
+                  0000a334    00000ad5                   : fontcmss26b.obj (.const:g_pucCmss26bData)
+                  0000ae09    00000003     --HOLE-- [fill = 0]
+                  0000ae0c    00000782                   : fontcmss18b.obj (.const:g_pucCmss18bData)
+                  0000b58e    00000002     --HOLE-- [fill = 0]
+                  0000b590    000006ca                   : fontcmss16b.obj (.const:g_pucCmss16bData)
+                  0000bc5a    00000002     --HOLE-- [fill = 0]
+                  0000bc5c    0000061e                   : fontcm14b.obj (.const:g_pucCm14bData)
+                  0000c27a    00000002     --HOLE-- [fill = 0]
+                  0000c27c    000005c7                   : fontcmss12b.obj (.const:g_pucCmss12bData)
+                  0000c843    00000001     --HOLE-- [fill = 0]
+                  0000c844    00000514                   : fontcmss12.obj (.const:g_pucCmss12Data)
+                  0000cd58    00000101     rtsv7M3_T_le_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+                  0000ce59    00000003     --HOLE-- [fill = 0]
+                  0000ce5c    000000c8     grlib-cm3.lib : fontcm14b.obj (.const:g_sFontCm14b)
+                  0000cf24    000000c8                   : fontcmss12.obj (.const:g_sFontCmss12)
+                  0000cfec    000000c8                   : fontcmss12b.obj (.const:g_sFontCmss12b)
+                  0000d0b4    000000c8                   : fontcmss16b.obj (.const:g_sFontCmss16b)
+                  0000d17c    000000c8                   : fontcmss18b.obj (.const:g_sFontCmss18b)
+                  0000d244    000000c8                   : fontcmss26b.obj (.const:g_sFontCmss26b)
+                  0000d30c    000000c8                   : fontcmss28b.obj (.const:g_sFontCmss28b)
+                  0000d3d4    00000060     rtsv7M3_T_le_eabi.lib : mktime.obj (.const)
+                  0000d434    00000028     ili9341_240x320x262K.obj (.const:g_sILI9341_240x320x262K)
+                  0000d45c    00000020     touch.obj (.const)
+                  0000d47c    00000010     grlib-cm3.lib : context.obj (.const)
+                  0000d48c    0000000c     bme280.obj (.const)
+                  0000d498    00000006     bme280.obj (.const:.string)
+
+.text      0    0000d4a0    0000b200     
+                  0000d4a0    00004de0     main.obj (.text)
+                  00012280    0000109a     rtsv7M3_T_le_eabi.lib : _printfi.obj (.text)
+                  0001331a    00000002     --HOLE-- [fill = 0]
+                  0001331c    00001064     bme280.obj (.text)
+                  00014380    000009b4     ili9341_240x320x262K.obj (.text)
+                  00014d34    00000608     touch.obj (.text)
+                  0001533c    0000050c     DS3231.obj (.text)
+                  00015848    0000043a     mmc.obj (.text)
+                  00015c82    00000002     --HOLE-- [fill = 0]
+                  00015c84    00000368     grlib-cm3.lib : image.obj (.text:InternalImageDraw)
+                  00015fec    000002c4                   : image.obj (.text:PixelTransparentDraw)
+                  000162b0    000002b4     rtsv7M3_T_le_eabi.lib : mktime.obj (.text)
+                  00016564    00000266     grlib-cm3.lib : string.obj (.text:GrFontGlyphRender)
+                  000167ca    00000220     rtsv7M3_T_le_eabi.lib : ll_div_t2.obj (.text)
+                  000169ea    000001f4                           : ull_div_t2.obj (.text)
+                  00016bde    000001b6                           : fd_add_t2.obj (.text)
+                  00016d94    00000136                           : fd_div_t2.obj (.text)
+                  00016eca    0000012c     grlib-cm3.lib : line.obj (.text:GrLineDraw)
+                  00016ff6    00000002     --HOLE-- [fill = 0]
+                  00016ff8    00000110     rtsv7M3_T_le_eabi.lib : xdscale.obj (.text)
+                  00017108    000000fc                           : fd_mul_t2.obj (.text)
+                  00017204    000000fa                           : fs_add_t2.obj (.text)
+                  000172fe    000000d2     grlib-cm3.lib : line.obj (.text:GrLineClip)
+                  000173d0    000000c4                   : string.obj (.text:GrDefaultStringRenderer)
+                  00017494    000000be     rtsv7M3_T_le_eabi.lib : xdnorm.obj (.text)
+                  00017552    0000009c                           : memcpy_t2.obj (.text)
+                  000175ee    0000009a     grlib-cm3.lib : rectangle.obj (.text:GrRectFill)
+                  00017688    00000092     rtsv7M3_T_le_eabi.lib : fs_div_t2.obj (.text)
+                  0001771a    00000002     --HOLE-- [fill = 0]
+                  0001771c    00000090     ili9341_240x320x262K.obj (.text:TFT_HW_SetRect)
+                  000177ac    00000086     rtsv7M3_T_le_eabi.lib : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00017832    00000086                           : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  000178b8    0000007a                           : fs_mul_t2.obj (.text)
+                  00017932    0000007a                           : memset_t2.obj (.text)
+                  000179ac    0000006c                           : autoinit.obj (.text)
+                  00017a18    0000006a                           : copy_decompress_rle.obj (.text)
+                  00017a82    00000068     grlib-cm3.lib : string.obj (.text:GrStringWidthGet)
+                  00017aea    00000066     touch.obj (.text:DrawCross)
+                  00017b50    00000066     grlib-cm3.lib : rectangle.obj (.text:GrRectDraw)
+                  00017bb6    00000066     rtsv7M3_T_le_eabi.lib : xdunscal.obj (.text)
+                  00017c1c    00000064     grlib-cm3.lib : context.obj (.text:GrContextInit)
+                  00017c80    00000060     rtsv7M3_T_le_eabi.lib : fs_cmp_t2.obj (.text:__aeabi_cfcmple)
+                  00017ce0    00000060                           : fs_cmp_t2.obj (.text:__aeabi_cfrcmple)
+                  00017d40    00000060                           : sprintf.obj (.text)
+                  00017da0    0000005c     grlib-cm3.lib : string.obj (.text:FontWideGlyphDataGet)
+                  00017dfc    00000056     rtsv7M3_T_le_eabi.lib : ltoa.obj (.text)
+                  00017e52    00000002     --HOLE-- [fill = 0]
+                  00017e54    0000004c                           : atoi.obj (.text)
+                  00017ea0    0000004c                           : cpy_tbl.obj (.text)
+                  00017eec    0000004c                           : localtim.obj (.text)
+                  00017f38    0000004a     grlib-cm3.lib : string.obj (.text:UpdateContextCharMapping)
+                  00017f82    00000048     rtsv7M3_T_le_eabi.lib : fd_toi_t2.obj (.text)
+                  00017fca    00000046     grlib-cm3.lib : line.obj (.text:GrLineDrawH)
+                  00018010    00000046                   : line.obj (.text:GrLineDrawV)
+                  00018056    00000046     rtsv7M3_T_le_eabi.lib : ldexp.obj (.text)
+                  0001809c    00000044                           : exit.obj (.text)
+                  000180e0    00000042                           : u_divt2.obj (.text)
+                  00018122    00000002     --HOLE-- [fill = 0]
+                  00018124    00000040                           : signal.obj (.text)
+                  00018164    0000003c                           : boot.obj (.text)
+                  000181a0    0000003a     grlib-cm3.lib : string.obj (.text:FontGlyphDataGet)
+                  000181da    00000038                   : line.obj (.text:GrClipCodeGet)
+                  00018212    00000038     rtsv7M3_T_le_eabi.lib : fs_tod_t2.obj (.text)
+                  0001824a    00000038                           : fs_toi_t2.obj (.text)
+                  00018282    00000038                           : i_tofs_t2.obj (.text)
+                  000182ba    00000002     --HOLE-- [fill = 0]
+                  000182bc    00000034                           : feraiseexcept.obj (.text)
+                  000182f0    00000034                           : fs_tou_t2.obj (.text)
+                  00018324    00000030                           : xferaise.obj (.text)
+                  00018354    0000002e                           : i_tofd_t2.obj (.text)
+                  00018382    0000002e                           : raise.obj (.text)
+                  000183b0    0000002a     grlib-cm3.lib : string.obj (.text:GrFontBaselineGet)
+                  000183da    0000002a     rtsv7M3_T_le_eabi.lib : xdclass.obj (.text)
+                  00018404    00000028     grlib-cm3.lib : string.obj (.text:GrStringNextCharGet)
+                  0001842c    00000028     ili9341_240x320x262K.obj (.text:TFT_HW_Write)
+                  00018454    00000026     grlib-cm3.lib : string.obj (.text:GrFontInfoGet)
+                  0001847a    00000024     rtsv7M3_T_le_eabi.lib : u_tofs_t2.obj (.text)
+                  0001849e    00000022     grlib-cm3.lib : string.obj (.text:GrFontGlyphDataGet)
+                  000184c0    00000022     rtsv7M3_T_le_eabi.lib : frexp.obj (.text)
+                  000184e2    0000001e     grlib-cm3.lib : string.obj (.text:GrFontCodepageGet)
+                  00018500    0000001a     rtsv7M3_T_le_eabi.lib : memccpy.obj (.text)
+                  0001851a    00000002     --HOLE-- [fill = 0]
+                  0001851c    00000018                           : args_main.obj (.text)
+                  00018534    00000018                           : ll_mul_t2.obj (.text)
+                  0001854c    00000016                           : strchr.obj (.text)
+                  00018562    00000002     --HOLE-- [fill = 0]
+                  00018564    00000014                           : _lock.obj (.text)
+                  00018578    00000014                           : strlen.obj (.text)
+                  0001858c    00000010     grlib-cm3.lib : string.obj (.text:GrStringDraw)
+                  0001859c    0000000e                   : image.obj (.text:GrImageDraw)
+                  000185aa    0000000e     rtsv7M3_T_le_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  000185b8    0000000c                           : copy_zero_init.obj (.text:decompress:ZI)
+                  000185c4    0000000c     lm3s9b95_startup_ccs.obj (.text)
+                  000185d0    00000008     grlib-cm3.lib : charmap.obj (.text:GrMapISO8859_1_Unicode)
+                  000185d8    00000006                   : string.obj (.text:GrContextFontSet)
+                  000185de    00000006     rtsv7M3_T_le_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  000185e4    00000004                           : pre_init.obj (.text)
+                  000185e8    00000008     driverlib-cm3.lib : ssi.o (.tramp.SSIDataGetNonBlocking.1)
+                  000185f0    00000008                       : ssi.o (.tramp.SSIEnable.1)
+                  000185f8    00000008                       : gpio.o (.tramp.GPIOPinWrite.1)
+                  00018600    00000008                       : ssi.o (.tramp.SSIConfigSetExpClk.1)
+                  00018608    00000008                       : gpio.o (.tramp.GPIOPinTypeGPIOOutput.1)
+                  00018610    00000008                       : gpio.o (.tramp.GPIOPinTypeSSI.1)
+                  00018618    00000008                       : ssi.o (.tramp.SSIDataGet.1)
+                  00018620    00000008                       : ssi.o (.tramp.SSIDataPut.1)
+                  00018628    00000008                       : gpio.o (.tramp.GPIOPinTypeADC.1)
+                  00018630    00000008                       : sysctl.o (.tramp.SysCtlGPIOAHBEnable.1)
+                  00018638    00000008                       : i2c.o (.tramp.I2CMasterEnable.1)
+                  00018640    00000008                       : i2c.o (.tramp.I2CMasterInitExpClk.1)
+                  00018648    00000008                       : sysctl.o (.tramp.SysCtlClockGet.1)
+                  00018650    00000008                       : gpio.o (.tramp.GPIOPinConfigure.1)
+                  00018658    00000008                       : gpio.o (.tramp.GPIOPinTypeI2C.1)
+                  00018660    00000008                       : sysctl.o (.tramp.SysCtlPeripheralEnable.1)
+                  00018668    00000008                       : i2c.o (.tramp.I2CMasterDataGet.1)
+                  00018670    00000008                       : i2c.o (.tramp.I2CMasterErr.1)
+                  00018678    00000008                       : i2c.o (.tramp.I2CMasterControl.1)
+                  00018680    00000008                       : i2c.o (.tramp.I2CMasterDataPut.1)
+                  00018688    00000008                       : i2c.o (.tramp.I2CMasterSlaveAddrSet.1)
+                  00018690    00000008                       : i2c.o (.tramp.I2CMasterBusy.1)
+                  00018698    00000008                       : sysctl.o (.tramp.SysCtlDelay.1)
+
+.constdata 
+*          0    000186a0    00000244     
+                  000186a0    000001cc     driverlib-cm3.lib : sysctl.o (.constdata)
+                  0001886c    00000078                       : gpio.o (.constdata)
+
+i.SysCtlClockGet 
+*          0    000188e4    000001e8     
+                  000188e4    000001e8     driverlib-cm3.lib : sysctl.o (i.SysCtlClockGet)
+
+i.GPIOPadConfigSet 
+*          0    00018acc    000000b0     
+                  00018acc    000000b0     driverlib-cm3.lib : gpio.o (i.GPIOPadConfigSet)
+
+i.I2CMasterInitExpClk 
+*          0    00018b7c    00000054     
+                  00018b7c    00000054     driverlib-cm3.lib : i2c.o (i.I2CMasterInitExpClk)
+
+i.SysCtlPeripheralEnable 
+*          0    00018bd0    00000050     
+                  00018bd0    00000050     driverlib-cm3.lib : sysctl.o (i.SysCtlPeripheralEnable)
+
+i.SSIConfigSetExpClk 
+*          0    00018c20    0000004a     
+                  00018c20    0000004a     driverlib-cm3.lib : ssi.o (i.SSIConfigSetExpClk)
+
+i.GPIOPinConfigure 
+*          0    00018c6c    00000048     
+                  00018c6c    00000048     driverlib-cm3.lib : gpio.o (i.GPIOPinConfigure)
+
+i.GPIODirModeSet 
+*          0    00018cb4    00000028     
+                  00018cb4    00000028     driverlib-cm3.lib : gpio.o (i.GPIODirModeSet)
+
+i.GPIOPinTypeADC 
+*          0    00018cdc    0000001c     
+                  00018cdc    0000001c     driverlib-cm3.lib : gpio.o (i.GPIOPinTypeADC)
+
+i.GPIOPinTypeGPIOOutput 
+*          0    00018cf8    0000001c     
+                  00018cf8    0000001c     driverlib-cm3.lib : gpio.o (i.GPIOPinTypeGPIOOutput)
+
+i.GPIOPinTypeI2C 
+*          0    00018d14    0000001c     
+                  00018d14    0000001c     driverlib-cm3.lib : gpio.o (i.GPIOPinTypeI2C)
+
+i.GPIOPinTypeSSI 
+*          0    00018d30    0000001c     
+                  00018d30    0000001c     driverlib-cm3.lib : gpio.o (i.GPIOPinTypeSSI)
+
+i.I2CMasterErr 
+*          0    00018d4c    00000018     
+                  00018d4c    00000018     driverlib-cm3.lib : i2c.o (i.I2CMasterErr)
+
+i.SSIDataGetNonBlocking 
+*          0    00018d64    00000014     
+                  00018d64    00000014     driverlib-cm3.lib : ssi.o (i.SSIDataGetNonBlocking)
+
+i.SysCtlGPIOAHBEnable 
+*          0    00018d78    00000010     
+                  00018d78    00000010     driverlib-cm3.lib : sysctl.o (i.SysCtlGPIOAHBEnable)
+
+i.SSIDataGet 
+*          0    00018d88    0000000e     
+                  00018d88    0000000e     driverlib-cm3.lib : ssi.o (i.SSIDataGet)
+
+i.I2CMasterBusy 
+*          0    00018d96    0000000c     
+                  00018d96    0000000c     driverlib-cm3.lib : i2c.o (i.I2CMasterBusy)
+
+i.SSIDataPut 
+*          0    00018da2    0000000c     
+                  00018da2    0000000c     driverlib-cm3.lib : ssi.o (i.SSIDataPut)
+
+i.I2CMasterEnable 
+*          0    00018dae    0000000a     
+                  00018dae    0000000a     driverlib-cm3.lib : i2c.o (i.I2CMasterEnable)
+
+i.SSIEnable 
+*          0    00018db8    0000000a     
+                  00018db8    0000000a     driverlib-cm3.lib : ssi.o (i.SSIEnable)
+
+i.I2CMasterSlaveAddrSet 
+*          0    00018dc2    00000008     
+                  00018dc2    00000008     driverlib-cm3.lib : i2c.o (i.I2CMasterSlaveAddrSet)
+
+.emb_text 
+*          0    00018dcc    00000006     
+                  00018dcc    00000006     driverlib-cm3.lib : sysctl.o (.emb_text)
+
+i.GPIOPinWrite 
+*          0    00018dd2    00000006     
+                  00018dd2    00000006     driverlib-cm3.lib : gpio.o (i.GPIOPinWrite)
+
+i.I2CMasterControl 
+*          0    00018dd8    00000004     
+                  00018dd8    00000004     driverlib-cm3.lib : i2c.o (i.I2CMasterControl)
+
+i.I2CMasterDataGet 
+*          0    00018ddc    00000004     
+                  00018ddc    00000004     driverlib-cm3.lib : i2c.o (i.I2CMasterDataGet)
+
+i.I2CMasterDataPut 
+*          0    00018de0    00000004     
+                  00018de0    00000004     driverlib-cm3.lib : i2c.o (i.I2CMasterDataPut)
+
+.cinit     0    00018de8    000000d8     
+                  00018de8    000000ae     (.cinit..data.load) [load image, compression = rle]
+                  00018e96    00000002     --HOLE-- [fill = 0]
+                  00018e98    0000000c     (__TI_handler_table)
+                  00018ea4    00000004     --HOLE-- [fill = 0]
+                  00018ea8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00018eb0    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000000    0000081c     UNINITIALIZED
+                  20000000    000000a8     main.obj (.bss:daily_humidity_time)
+                  200000a8    000000a8     main.obj (.bss:daily_temp_time)
+                  20000150    000000a8     main.obj (.bss:loaded_daily_humidity_time)
+                  200001f8    000000a8     main.obj (.bss:loaded_daily_temp_time)
+                  200002a0    00000060     main.obj (.bss:daily_humidity)
+                  20000300    00000060     main.obj (.bss:daily_temp)
+                  20000360    00000060     main.obj (.bss:daily_temp_to_save)
+                  200003c0    00000060     main.obj (.bss:f_loaded_daily_temp)
+                  20000420    00000060     main.obj (.bss:loaded_daily_humidity)
+                  20000480    00000060     main.obj (.bss:loaded_daily_temp)
+                  200004e0    0000005c     main.obj (.bss:pressure_history_data_time)
+                  2000053c    00000034     main.obj (.bss:loaded_weekly_humidity_time)
+                  20000570    00000034     main.obj (.bss:loaded_weekly_max_temp_time)
+                  200005a4    00000034     main.obj (.bss:loaded_weekly_min_temp_time)
+                  200005d8    00000034     main.obj (.bss:pressure_history_loaded_data)
+                  2000060c    00000034     main.obj (.bss:pressure_history_loaded_data_time)
+                  20000640    00000034     main.obj (.bss:weekly_humidity_time)
+                  20000674    00000034     main.obj (.bss:weekly_max_temp_time)
+                  200006a8    00000034     main.obj (.bss:weekly_min_temp_time)
+                  200006dc    0000002c     main.obj (.bss:sContext)
+                  20000708    00000020     grlib-cm3.lib : image.obj (.bss)
+                  20000728    0000001c     (.common:loaded_weekly_humidity)
+                  20000744    0000001c     (.common:loaded_weekly_max_temp)
+                  20000760    0000001c     (.common:loaded_weekly_min_temp)
+                  2000077c    0000001c     (.common:weekly_humidity)
+                  20000798    0000001c     (.common:weekly_max_temp)
+                  200007b4    0000001c     (.common:weekly_min_temp)
+                  200007d0    0000001c     (.common:weekly_temp_to_save)
+                  200007ec    00000018     (.common:displayed_data)
+                  20000804    00000004                   : context.obj (.bss)
+                  20000808    00000004     (.common:firstX)
+                  2000080c    00000004     (.common:firstY)
+                  20000810    00000004     (.common:g_pfnTSHandler)
+                  20000814    00000004     (.common:g_u32TouchDebouncer)
+                  20000818    00000002     (.common:g_i16TouchX)
+                  2000081a    00000002     (.common:g_i16TouchY)
+
+.TI.noinit 
+*          0    20000000    00000000     UNINITIALIZED
+
+.stack     0    2000081c    00000800     UNINITIALIZED
+                  2000081c    00000800     --HOLE--
+
+.data      0    20001020    00000240     UNINITIALIZED
+                  20001020    000000b0     rtsv7M3_T_le_eabi.lib : signal.obj (.data:sigtable)
+                  200010d0    00000080                           : xvalues.obj (.data)
+                  20001150    00000046     main.obj (.data:day_of_the_week)
+                  20001196    00000002     --HOLE--
+                  20001198    00000034     main.obj (.data:pressure_history_data)
+                  200011cc    00000024     rtsv7M3_T_le_eabi.lib : localtim.obj (.data:local_tm)
+                  200011f0    00000022     main.obj (.data)
+                  20001212    00000002     --HOLE--
+                  20001214    00000019     touch.obj (.data)
+                  2000122d    00000003     --HOLE--
+                  20001230    00000010     rtsv7M3_T_le_eabi.lib : tmzone.obj (.data)
+                  20001240    00000008                           : _lock.obj (.data)
+                  20001248    00000008                           : exit.obj (.data)
+                  20001250    00000008                           : feraiseexcept.obj (.data)
+                  20001258    00000004                           : errno.obj (.data)
+                  2000125c    00000004                           : stkdepth_vars.obj (.data)
+
+.TI.persistent 
+*          0    20001020    00000000     UNINITIALIZED
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00018eb0 records: 2, size/record: 8, table size: 16
+	.data: load addr=00018de8, load size=000000ae bytes, run addr=20001020, run size=00000240 bytes, compression=rle
+	.bss: load addr=00018ea8, load size=00000008 bytes, run addr=20000000, run size=0000081c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00018e98 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+SSIDataGetNonBlocking     $Tramp$TT$S$$SSIDataGetNonBlocking
+   00018d65     000185e8     00015940   mmc.obj (.text)
+                             00015a56   mmc.obj (.text)
+                             00015aec   mmc.obj (.text)
+SSIEnable                 $Tramp$TT$S$$SSIEnable
+   00018db9     000185f0     00015914   mmc.obj (.text)
+GPIOPinWrite              $Tramp$TT$S$$GPIOPinWrite
+   00018dd3     000185f8     0001590e   mmc.obj (.text)
+                             0001594e   mmc.obj (.text)
+                             0001595a   mmc.obj (.text)
+SSIConfigSetExpClk        $Tramp$TT$S$$SSIConfigSetExpClk
+   00018c21     00018600     00015902   mmc.obj (.text)
+GPIOPinTypeGPIOOutput     $Tramp$TT$S$$GPIOPinTypeGPIOOutput
+   00018cf9     00018608     000158e2   mmc.obj (.text)
+                             000158ea   mmc.obj (.text)
+GPIOPinTypeSSI            $Tramp$TT$S$$GPIOPinTypeSSI
+   00018d31     00018610     000158d8   mmc.obj (.text)
+SSIDataGet                $Tramp$TT$S$$SSIDataGet
+   00018d89     00018618     00015860   mmc.obj (.text)
+                             0001588a   mmc.obj (.text)
+SSIDataPut                $Tramp$TT$S$$SSIDataPut
+   00018da3     00018620     00015858   mmc.obj (.text)
+                             00015882   mmc.obj (.text)
+GPIOPinTypeADC            $Tramp$TT$S$$GPIOPinTypeADC
+   00018cdd     00018628     00014f68   touch.obj (.text)
+SysCtlGPIOAHBEnable       $Tramp$TT$S$$SysCtlGPIOAHBEnable
+   00018d79     00018630     0001483a   ili9341_240x320x262K.obj (.text)
+                             00014840   ili9341_240x320x262K.obj (.text)
+                             00014846   ili9341_240x320x262K.obj (.text)
+                             0001484c   ili9341_240x320x262K.obj (.text)
+I2CMasterEnable           $Tramp$TT$S$$I2CMasterEnable
+   00018daf     00018638     00011dec   main.obj (.text)
+I2CMasterInitExpClk       $Tramp$TT$S$$I2CMasterInitExpClk
+   00018b7d     00018640     00011de0   main.obj (.text)
+SysCtlClockGet            $Tramp$TT$S$$SysCtlClockGet
+   000188e5     00018648     00011dd6   main.obj (.text)
+                             000158ee   mmc.obj (.text)
+GPIOPinConfigure          $Tramp$TT$S$$GPIOPinConfigure
+   00018c6d     00018650     00011da2   main.obj (.text)
+                             00011da8   main.obj (.text)
+                             000158be   mmc.obj (.text)
+                             000158c6   mmc.obj (.text)
+                             000158ce   mmc.obj (.text)
+GPIOPinTypeI2C            $Tramp$TT$S$$GPIOPinTypeI2C
+   00018d15     00018658     00011d9c   main.obj (.text)
+SysCtlPeripheralEnable    $Tramp$TT$S$$SysCtlPeripheralEnable
+   00018bd1     00018660     00011d94   main.obj (.text)
+                             00011dd2   main.obj (.text)
+                             000158aa   mmc.obj (.text)
+                             000158b0   mmc.obj (.text)
+                             000158b6   mmc.obj (.text)
+I2CMasterDataGet          $Tramp$TT$S$$I2CMasterDataGet
+   00018ddd     00018668     00011124   main.obj (.text)
+                             00011154   main.obj (.text)
+                             0001118a   main.obj (.text)
+                             000111b6   main.obj (.text)
+                             0001544e   DS3231.obj (.text)
+                             0001547e   DS3231.obj (.text)
+                             000154ae   DS3231.obj (.text)
+                             000154de   DS3231.obj (.text)
+                             0001550e   DS3231.obj (.text)
+                             0001553e   DS3231.obj (.text)
+                             0001556e   DS3231.obj (.text)
+                             00015830   DS3231.obj (.text)
+I2CMasterErr              $Tramp$TT$S$$I2CMasterErr
+   00018d4d     00018670     00010fe0   main.obj (.text)
+                             00011020   main.obj (.text)
+                             0001104a   main.obj (.text)
+                             000110de   main.obj (.text)
+                             00011118   main.obj (.text)
+                             00011148   main.obj (.text)
+                             0001117e   main.obj (.text)
+                             000111aa   main.obj (.text)
+                             0001540a   DS3231.obj (.text)
+                             0001543a   DS3231.obj (.text)
+                             0001546a   DS3231.obj (.text)
+                             0001549a   DS3231.obj (.text)
+                             000154ca   DS3231.obj (.text)
+                             000154fa   DS3231.obj (.text)
+                             0001552a   DS3231.obj (.text)
+                             0001555a   DS3231.obj (.text)
+                             000155fc   DS3231.obj (.text)
+                             00015634   DS3231.obj (.text)
+                             0001565c   DS3231.obj (.text)
+                             00015684   DS3231.obj (.text)
+                             000156ac   DS3231.obj (.text)
+                             000156d4   DS3231.obj (.text)
+                             00015702   DS3231.obj (.text)
+                             0001572a   DS3231.obj (.text)
+                             00015796   DS3231.obj (.text)
+                             000157be   DS3231.obj (.text)
+                             000157fc   DS3231.obj (.text)
+                             00015824   DS3231.obj (.text)
+I2CMasterControl          $Tramp$TT$S$$I2CMasterControl
+   00018dd9     00018678     00010fd0   main.obj (.text)
+                             00011010   main.obj (.text)
+                             0001103a   main.obj (.text)
+                             000110ce   main.obj (.text)
+                             00011108   main.obj (.text)
+                             00011138   main.obj (.text)
+                             0001116e   main.obj (.text)
+                             0001119a   main.obj (.text)
+                             000153fa   DS3231.obj (.text)
+                             0001542a   DS3231.obj (.text)
+                             0001545a   DS3231.obj (.text)
+                             0001548a   DS3231.obj (.text)
+                             000154ba   DS3231.obj (.text)
+                             000154ea   DS3231.obj (.text)
+                             0001551a   DS3231.obj (.text)
+                             0001554a   DS3231.obj (.text)
+                             000155ec   DS3231.obj (.text)
+                             00015624   DS3231.obj (.text)
+                             0001564c   DS3231.obj (.text)
+                             00015674   DS3231.obj (.text)
+                             0001569c   DS3231.obj (.text)
+                             000156c4   DS3231.obj (.text)
+                             000156f2   DS3231.obj (.text)
+                             0001571a   DS3231.obj (.text)
+                             00015786   DS3231.obj (.text)
+                             000157ae   DS3231.obj (.text)
+                             000157ec   DS3231.obj (.text)
+                             00015814   DS3231.obj (.text)
+I2CMasterDataPut          $Tramp$TT$S$$I2CMasterDataPut
+   00018de1     00018680     00010fc8   main.obj (.text)
+                             00011008   main.obj (.text)
+                             00011032   main.obj (.text)
+                             000110c6   main.obj (.text)
+                             000153f2   DS3231.obj (.text)
+                             000155e4   DS3231.obj (.text)
+                             0001561c   DS3231.obj (.text)
+                             00015644   DS3231.obj (.text)
+                             0001566c   DS3231.obj (.text)
+                             00015694   DS3231.obj (.text)
+                             000156bc   DS3231.obj (.text)
+                             000156ea   DS3231.obj (.text)
+                             00015712   DS3231.obj (.text)
+                             0001577e   DS3231.obj (.text)
+                             000157a6   DS3231.obj (.text)
+                             000157e4   DS3231.obj (.text)
+I2CMasterSlaveAddrSet     $Tramp$TT$S$$I2CMasterSlaveAddrSet
+   00018dc3     00018688     00010fbe   main.obj (.text)
+                             000110bc   main.obj (.text)
+                             000110ee   main.obj (.text)
+                             000153ea   DS3231.obj (.text)
+                             00015422   DS3231.obj (.text)
+                             000155dc   DS3231.obj (.text)
+                             00015774   DS3231.obj (.text)
+                             000157da   DS3231.obj (.text)
+                             0001580c   DS3231.obj (.text)
+I2CMasterBusy             $Tramp$TT$S$$I2CMasterBusy
+   00018d97     00018690     00010fb0   main.obj (.text)
+                             00010fd6   main.obj (.text)
+                             00011016   main.obj (.text)
+                             00011040   main.obj (.text)
+                             000110d4   main.obj (.text)
+                             0001110e   main.obj (.text)
+                             0001113e   main.obj (.text)
+                             00011174   main.obj (.text)
+                             000111a0   main.obj (.text)
+                             00015400   DS3231.obj (.text)
+                             00015430   DS3231.obj (.text)
+                             00015460   DS3231.obj (.text)
+                             00015490   DS3231.obj (.text)
+                             000154c0   DS3231.obj (.text)
+                             000154f0   DS3231.obj (.text)
+                             00015520   DS3231.obj (.text)
+                             00015550   DS3231.obj (.text)
+                             000155ce   DS3231.obj (.text)
+                             000155f2   DS3231.obj (.text)
+                             0001562a   DS3231.obj (.text)
+                             00015652   DS3231.obj (.text)
+                             0001567a   DS3231.obj (.text)
+                             000156a2   DS3231.obj (.text)
+                             000156ca   DS3231.obj (.text)
+                             000156f8   DS3231.obj (.text)
+                             00015720   DS3231.obj (.text)
+                             00015766   DS3231.obj (.text)
+                             0001578c   DS3231.obj (.text)
+                             000157b4   DS3231.obj (.text)
+                             000157f2   DS3231.obj (.text)
+                             0001581a   DS3231.obj (.text)
+SysCtlDelay               $Tramp$TT$S$$SysCtlDelay
+   00018dcd     00018698     00010f72   main.obj (.text)
+                             00010f7c   main.obj (.text)
+                             00011de6   main.obj (.text)
+                             00011e1a   main.obj (.text)
+                             00011f36   main.obj (.text)
+                             000121e8   main.obj (.text)
+                             000148f2   ili9341_240x320x262K.obj (.text)
+                             00014910   ili9341_240x320x262K.obj (.text)
+                             00014934   ili9341_240x320x262K.obj (.text)
+                             00014cce   ili9341_240x320x262K.obj (.text)
+                             00014cf4   ili9341_240x320x262K.obj (.text)
+                             0001591c   mmc.obj (.text)
+
+[23 trampolines]
+[171 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                              
+-------   ----                              
+0001809d  C$$EXIT                           
+00017aeb  DrawCross                         
+00018cb5  GPIODirModeSet                    
+00018acd  GPIOPadConfigSet                  
+00018c6d  GPIOPinConfigure                  
+00018cdd  GPIOPinTypeADC                    
+00018cf9  GPIOPinTypeGPIOOutput             
+00018d15  GPIOPinTypeI2C                    
+00018d31  GPIOPinTypeSSI                    
+00018dd3  GPIOPinWrite                      
+000185d9  GrContextFontSet                  
+00017c1d  GrContextInit                     
+000173d1  GrDefaultStringRenderer           
+000183b1  GrFontBaselineGet                 
+000184e3  GrFontCodepageGet                 
+0001849f  GrFontGlyphDataGet                
+00016565  GrFontGlyphRender                 
+00018455  GrFontInfoGet                     
+0001859d  GrImageDraw                       
+00016ecb  GrLineDraw                        
+00017fcb  GrLineDrawH                       
+00018011  GrLineDrawV                       
+000185d1  GrMapISO8859_1_Unicode            
+00017b51  GrRectDraw                        
+000175ef  GrRectFill                        
+0001858d  GrStringDraw                      
+00018405  GrStringNextCharGet               
+00017a83  GrStringWidthGet                  
+00018d97  I2CMasterBusy                     
+00018dd9  I2CMasterControl                  
+00018ddd  I2CMasterDataGet                  
+00018de1  I2CMasterDataPut                  
+00018daf  I2CMasterEnable                   
+00018d4d  I2CMasterErr                      
+00018b7d  I2CMasterInitExpClk               
+00018dc3  I2CMasterSlaveAddrSet             
+00014837  ILI9341_240x320x262K_Init         
+000153db  RTC_Get                           
+000157cf  RTC_Read_Reg                      
+00015387  RTC_Set                           
+0001560d  RTC_Set_Date_Registers            
+0001573b  RTC_Write_Date                    
+000155c5  RTC_Write_Date_Start              
+00015755  RTC_Write_Reg                     
+000185c5  ResetISR                          
+UNDEFED   SHT$$INIT_ARRAY$$Base             
+UNDEFED   SHT$$INIT_ARRAY$$Limit            
+00018c21  SSIConfigSetExpClk                
+00018d89  SSIDataGet                        
+00018d65  SSIDataGetNonBlocking             
+00018da3  SSIDataPut                        
+00018db9  SSIEnable                         
+000188e5  SysCtlClockGet                    
+00018dcd  SysCtlDelay                       
+00018d79  SysCtlGPIOAHBEnable               
+00018bd1  SysCtlPeripheralEnable            
+00014381  TFT_HW_Command                    
+000143b3  TFT_HW_Read                       
+0001771d  TFT_HW_SetRect                    
+0001842d  TFT_HW_Write                      
+00015055  TouchCalibrationCallback          
+0000d4a1  TouchCallback                     
+000150c9  TouchScreenCalibrate              
+00015045  TouchScreenCallbackSet            
+00014f2d  TouchScreenInit                   
+00014e0b  TouchScreenIntHandler             
+000183db  _Dclass                           
+200010d0  _Denorm                           
+00017495  _Dnorm                            
+00016ff9  _Dscale                           
+00017bb7  _Dunscale                         
+200010e0  _Eps                              
+20001258  _Errno                            
+20001250  _Fenv                             
+00018325  _Feraise                          
+200010f0  _Hugeval                          
+20001100  _Inf                              
+20001110  _Nan                              
+20001130  _Rteps                            
+20001120  _Snan                             
+20001254  _Tls_setup__Fenv                  
+20001140  _Xbig                             
+20001148  _Zero                             
+2000101c  __STACK_END                       
+00000800  __STACK_SIZE                      
+20000a1c  __STACK_TOP                       
+00018eb0  __TI_CINIT_Base                   
+00018ec0  __TI_CINIT_Limit                  
+00018e98  __TI_Handler_Table_Base           
+00018ea4  __TI_Handler_Table_Limit          
+000179ad  __TI_auto_init                    
+20001248  __TI_cleanup_ptr                  
+000185ab  __TI_decompress_none              
+000185df  __TI_decompress_rle24             
+2000124c  __TI_dtors_ptr                    
+00013015  __TI_printfi                      
+00000000  __TI_static_base__                
+000185b9  __TI_zero_init                    
+000177ad  __aeabi_cdcmpeq                   
+000177ad  __aeabi_cdcmple                   
+00017833  __aeabi_cdrcmple                  
+00017c81  __aeabi_cfcmpeq                   
+00017c81  __aeabi_cfcmple                   
+00017ce1  __aeabi_cfrcmple                  
+00017f83  __aeabi_d2iz                      
+00016be9  __aeabi_dadd                      
+00016d95  __aeabi_ddiv                      
+00017109  __aeabi_dmul                      
+00016bdf  __aeabi_dsub                      
+00018213  __aeabi_f2d                       
+0001824b  __aeabi_f2iz                      
+000182f1  __aeabi_f2uiz                     
+00017209  __aeabi_fadd                      
+00017689  __aeabi_fdiv                      
+000178b9  __aeabi_fmul                      
+00017205  __aeabi_fsub                      
+00018355  __aeabi_i2d                       
+00018283  __aeabi_i2f                       
+000167cb  __aeabi_ldivmod                   
+00018535  __aeabi_lmul                      
+00017933  __aeabi_memclr                    
+00017933  __aeabi_memclr4                   
+00017933  __aeabi_memclr8                   
+00017553  __aeabi_memcpy                    
+00017553  __aeabi_memcpy4                   
+00017553  __aeabi_memcpy8                   
+00017935  __aeabi_memset                    
+00017935  __aeabi_memset4                   
+00017935  __aeabi_memset8                   
+0001847b  __aeabi_ui2f                      
+000180e1  __aeabi_uidiv                     
+000180e1  __aeabi_uidivmod                  
+000169eb  __aeabi_uldivmod                  
+ffffffff  __binit__                         
+ffffffff  __c_args__                        
+2000081c  __stack                           
+0001851d  _args_main                        
+00018165  _c_int00                          
+0000cd58  _ctypes_                          
+20001240  _lock                             
+00018573  _nop                              
+0001856b  _register_lock                    
+00018565  _register_unlock                  
+000185e5  _system_pre_init                  
+20001230  _tz                               
+20001244  _unlock                           
+000180a1  abort                             
+00017e55  atoi                              
+0001533d  bcd_to_decimal                    
+ffffffff  binit                             
+000138ad  bme280_cal_meas_delay             
+00013825  bme280_compensate_data            
+000133c1  bme280_get_regs                   
+00013735  bme280_get_sensor_data            
+00013657  bme280_get_sensor_mode            
+000135c3  bme280_get_sensor_settings        
+0001331d  bme280_init                       
+000137b5  bme280_parse_sensor_data          
+00013439  bme280_set_regs                   
+00013601  bme280_set_sensor_mode            
+00013537  bme280_set_sensor_settings        
+0001369d  bme280_soft_reset                 
+0000f5dd  check_day                         
+0000f609  check_dow                         
+0000dbaf  check_loaded_daily_humidity       
+0000dae7  check_loaded_daily_temp           
+0000fdc7  check_loaded_pressure_history_data
+0000f8e9  check_loaded_weekly_humidity      
+0000f665  check_loaded_weekly_max_temp      
+0000f7a9  check_loaded_weekly_min_temp      
+00010ab5  check_time                        
+0000f47d  clear_daily_graph                 
+0000efa1  clear_daily_humidity_data         
+0000ef55  clear_daily_temp_data             
+0000fae1  clear_loaded_data                 
+0000ff75  clear_pressure_history_graph      
+0000f4dd  clear_weekly_humidity_data        
+20001210  clear_weekly_humidity_data_flag   
+0000f545  clear_weekly_temp_data            
+0000fdb1  compare_time                      
+200011fb  config                            
+00017ea1  copy_in                           
+200011f8  daily_flag                        
+200002a0  daily_humidity                    
+20000000  daily_humidity_time               
+20000300  daily_temp                        
+200000a8  daily_temp_time                   
+20000360  daily_temp_to_save                
+20001150  day_of_the_week                   
+00015361  decimal_to_bcd                    
+00010f51  delay_ms                          
+200011f7  dialog_answer                     
+200007ec  displayed_data                    
+0001197d  draw_background                   
+0001163d  draw_graph_screen                 
+0000e815  draw_humidity_graph               
+0000de25  draw_or_erase_left_arrow          
+0000dc5d  draw_or_erase_right_arrow         
+0000ffe9  draw_pressure_history_graph       
+000111e1  draw_pressure_info                
+000107e5  draw_sensor_data                  
+0000dfa1  draw_temperature_graph            
+000106b1  erase_outdated_date               
+00010421  erase_outdated_sensor_data        
+0001061d  erase_outdated_time               
+00015891  errorAndHang                      
+000180a9  exit                              
+200003c0  f_loaded_daily_temp               
+000182bd  feraiseexcept                     
+20001211  finger_down                       
+20000808  firstX                            
+2000080c  firstY                            
+200011fa  first_measurement                 
+000184c1  frexp                             
+20001214  g_enuTSState                      
+2000121c  g_floTouchCalibrationA            
+20001220  g_floTouchCalibrationB            
+20001224  g_floTouchCalibrationC            
+20001228  g_floTouchCalibrationD            
+20000818  g_i16TouchX                       
+2000081a  g_i16TouchY                       
+20001216  g_i16X                            
+20001218  g_i16Y                            
+00000000  g_pfnVectors                      
+0000d47c  g_psDefaultCodePointMapTable      
+0000011c  g_pucBackground                   
+0000ce5c  g_sFontCm14b                      
+0000cf24  g_sFontCmss12                     
+0000cfec  g_sFontCmss12b                    
+0000d0b4  g_sFontCmss16b                    
+0000d17c  g_sFontCmss18b                    
+0000d244  g_sFontCmss26b                    
+0000d30c  g_sFontCmss28b                    
+0000d434  g_sILI9341_240x320x262K           
+20000814  g_u32TouchDebouncer               
+2000121a  g_u8State                         
+2000122c  g_u8TouchCallbackSemaphore        
+2000120c  humidity_measurements_counter     
+000110a1  i2c_read                          
+00010f99  i2c_write                         
+0000f9fd  init_data                         
+00015893  initializeCard                    
+20001208  last_hour_humidity                
+20001200  last_hour_temp                    
+00018057  ldexp                             
+0000fcd1  load_pressure_history_data        
+0000d979  load_temp_or_humidity             
+20000420  loaded_daily_humidity             
+20000150  loaded_daily_humidity_time        
+20000480  loaded_daily_temp                 
+200001f8  loaded_daily_temp_time            
+20000728  loaded_weekly_humidity            
+2000053c  loaded_weekly_humidity_time       
+20000744  loaded_weekly_max_temp            
+20000570  loaded_weekly_max_temp_time       
+20000760  loaded_weekly_min_temp            
+200005a4  loaded_weekly_min_temp_time       
+00017eed  localtime                         
+00017dfd  ltoa                              
+00011d81  main                              
+2000125c  main_func_sp                      
+00018501  memccpy                           
+00017553  memcpy                            
+0001793b  memset                            
+000162b1  mktime                            
+200011fd  phd_save_locked                   
+200011f9  power_off                         
+00011a75  power_off_dialog                  
+0000d79d  prepare_temp_to_save              
+200011fc  pressure_graph_ready              
+20001198  pressure_history_data             
+200004e0  pressure_history_data_time        
+200005d8  pressure_history_loaded_data      
+2000060c  pressure_history_loaded_data_time 
+00010e51  print_sensor_data                 
+00018383  raise                             
+00015b99  readSingleBlock                   
+200006dc  sContext                          
+0000fb39  save_pressure_history_data        
+0000d7ed  save_temp_or_humidity             
+200011f0  screen                            
+200011f4  screen_0b                         
+200011f5  screen_1b                         
+200011f6  screen_changed                    
+00015a47  sendCommand                       
+00015add  sendCommand_m                     
+00018125  signal                            
+00017d41  sprintf                           
+0001854d  strchr                            
+00010ebb  stream_sensor_data_forced_mode    
+00018579  strlen                            
+20001204  temp_measurements_counter         
+00015849  tradeByte                         
+00015873  tradeByte_m                       
+0000eff9  update_daily_humidity_data        
+0000f0c5  update_daily_temp_data            
+0000fef3  update_pressure_history_data      
+0000f3b9  update_weekly_humidity_data       
+0000f195  update_weekly_max_temp_data       
+0000f2b9  update_weekly_min_temp_data       
+2000077c  weekly_humidity                   
+20000640  weekly_humidity_time              
+20000798  weekly_max_temp                   
+20000674  weekly_max_temp_time              
+200007b4  weekly_min_temp                   
+200006a8  weekly_min_temp_time              
+200007d0  weekly_temp_to_save               
+00015c11  writeSingleBlock                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                              
+-------   ----                              
+00000000  __TI_static_base__                
+00000000  g_pfnVectors                      
+0000011c  g_pucBackground                   
+00000800  __STACK_SIZE                      
+0000cd58  _ctypes_                          
+0000ce5c  g_sFontCm14b                      
+0000cf24  g_sFontCmss12                     
+0000cfec  g_sFontCmss12b                    
+0000d0b4  g_sFontCmss16b                    
+0000d17c  g_sFontCmss18b                    
+0000d244  g_sFontCmss26b                    
+0000d30c  g_sFontCmss28b                    
+0000d434  g_sILI9341_240x320x262K           
+0000d47c  g_psDefaultCodePointMapTable      
+0000d4a1  TouchCallback                     
+0000d79d  prepare_temp_to_save              
+0000d7ed  save_temp_or_humidity             
+0000d979  load_temp_or_humidity             
+0000dae7  check_loaded_daily_temp           
+0000dbaf  check_loaded_daily_humidity       
+0000dc5d  draw_or_erase_right_arrow         
+0000de25  draw_or_erase_left_arrow          
+0000dfa1  draw_temperature_graph            
+0000e815  draw_humidity_graph               
+0000ef55  clear_daily_temp_data             
+0000efa1  clear_daily_humidity_data         
+0000eff9  update_daily_humidity_data        
+0000f0c5  update_daily_temp_data            
+0000f195  update_weekly_max_temp_data       
+0000f2b9  update_weekly_min_temp_data       
+0000f3b9  update_weekly_humidity_data       
+0000f47d  clear_daily_graph                 
+0000f4dd  clear_weekly_humidity_data        
+0000f545  clear_weekly_temp_data            
+0000f5dd  check_day                         
+0000f609  check_dow                         
+0000f665  check_loaded_weekly_max_temp      
+0000f7a9  check_loaded_weekly_min_temp      
+0000f8e9  check_loaded_weekly_humidity      
+0000f9fd  init_data                         
+0000fae1  clear_loaded_data                 
+0000fb39  save_pressure_history_data        
+0000fcd1  load_pressure_history_data        
+0000fdb1  compare_time                      
+0000fdc7  check_loaded_pressure_history_data
+0000fef3  update_pressure_history_data      
+0000ff75  clear_pressure_history_graph      
+0000ffe9  draw_pressure_history_graph       
+00010421  erase_outdated_sensor_data        
+0001061d  erase_outdated_time               
+000106b1  erase_outdated_date               
+000107e5  draw_sensor_data                  
+00010ab5  check_time                        
+00010e51  print_sensor_data                 
+00010ebb  stream_sensor_data_forced_mode    
+00010f51  delay_ms                          
+00010f99  i2c_write                         
+000110a1  i2c_read                          
+000111e1  draw_pressure_info                
+0001163d  draw_graph_screen                 
+0001197d  draw_background                   
+00011a75  power_off_dialog                  
+00011d81  main                              
+00013015  __TI_printfi                      
+0001331d  bme280_init                       
+000133c1  bme280_get_regs                   
+00013439  bme280_set_regs                   
+00013537  bme280_set_sensor_settings        
+000135c3  bme280_get_sensor_settings        
+00013601  bme280_set_sensor_mode            
+00013657  bme280_get_sensor_mode            
+0001369d  bme280_soft_reset                 
+00013735  bme280_get_sensor_data            
+000137b5  bme280_parse_sensor_data          
+00013825  bme280_compensate_data            
+000138ad  bme280_cal_meas_delay             
+00014381  TFT_HW_Command                    
+000143b3  TFT_HW_Read                       
+00014837  ILI9341_240x320x262K_Init         
+00014e0b  TouchScreenIntHandler             
+00014f2d  TouchScreenInit                   
+00015045  TouchScreenCallbackSet            
+00015055  TouchCalibrationCallback          
+000150c9  TouchScreenCalibrate              
+0001533d  bcd_to_decimal                    
+00015361  decimal_to_bcd                    
+00015387  RTC_Set                           
+000153db  RTC_Get                           
+000155c5  RTC_Write_Date_Start              
+0001560d  RTC_Set_Date_Registers            
+0001573b  RTC_Write_Date                    
+00015755  RTC_Write_Reg                     
+000157cf  RTC_Read_Reg                      
+00015849  tradeByte                         
+00015873  tradeByte_m                       
+00015891  errorAndHang                      
+00015893  initializeCard                    
+00015a47  sendCommand                       
+00015add  sendCommand_m                     
+00015b99  readSingleBlock                   
+00015c11  writeSingleBlock                  
+000162b1  mktime                            
+00016565  GrFontGlyphRender                 
+000167cb  __aeabi_ldivmod                   
+000169eb  __aeabi_uldivmod                  
+00016bdf  __aeabi_dsub                      
+00016be9  __aeabi_dadd                      
+00016d95  __aeabi_ddiv                      
+00016ecb  GrLineDraw                        
+00016ff9  _Dscale                           
+00017109  __aeabi_dmul                      
+00017205  __aeabi_fsub                      
+00017209  __aeabi_fadd                      
+000173d1  GrDefaultStringRenderer           
+00017495  _Dnorm                            
+00017553  __aeabi_memcpy                    
+00017553  __aeabi_memcpy4                   
+00017553  __aeabi_memcpy8                   
+00017553  memcpy                            
+000175ef  GrRectFill                        
+00017689  __aeabi_fdiv                      
+0001771d  TFT_HW_SetRect                    
+000177ad  __aeabi_cdcmpeq                   
+000177ad  __aeabi_cdcmple                   
+00017833  __aeabi_cdrcmple                  
+000178b9  __aeabi_fmul                      
+00017933  __aeabi_memclr                    
+00017933  __aeabi_memclr4                   
+00017933  __aeabi_memclr8                   
+00017935  __aeabi_memset                    
+00017935  __aeabi_memset4                   
+00017935  __aeabi_memset8                   
+0001793b  memset                            
+000179ad  __TI_auto_init                    
+00017a83  GrStringWidthGet                  
+00017aeb  DrawCross                         
+00017b51  GrRectDraw                        
+00017bb7  _Dunscale                         
+00017c1d  GrContextInit                     
+00017c81  __aeabi_cfcmpeq                   
+00017c81  __aeabi_cfcmple                   
+00017ce1  __aeabi_cfrcmple                  
+00017d41  sprintf                           
+00017dfd  ltoa                              
+00017e55  atoi                              
+00017ea1  copy_in                           
+00017eed  localtime                         
+00017f83  __aeabi_d2iz                      
+00017fcb  GrLineDrawH                       
+00018011  GrLineDrawV                       
+00018057  ldexp                             
+0001809d  C$$EXIT                           
+000180a1  abort                             
+000180a9  exit                              
+000180e1  __aeabi_uidiv                     
+000180e1  __aeabi_uidivmod                  
+00018125  signal                            
+00018165  _c_int00                          
+00018213  __aeabi_f2d                       
+0001824b  __aeabi_f2iz                      
+00018283  __aeabi_i2f                       
+000182bd  feraiseexcept                     
+000182f1  __aeabi_f2uiz                     
+00018325  _Feraise                          
+00018355  __aeabi_i2d                       
+00018383  raise                             
+000183b1  GrFontBaselineGet                 
+000183db  _Dclass                           
+00018405  GrStringNextCharGet               
+0001842d  TFT_HW_Write                      
+00018455  GrFontInfoGet                     
+0001847b  __aeabi_ui2f                      
+0001849f  GrFontGlyphDataGet                
+000184c1  frexp                             
+000184e3  GrFontCodepageGet                 
+00018501  memccpy                           
+0001851d  _args_main                        
+00018535  __aeabi_lmul                      
+0001854d  strchr                            
+00018565  _register_unlock                  
+0001856b  _register_lock                    
+00018573  _nop                              
+00018579  strlen                            
+0001858d  GrStringDraw                      
+0001859d  GrImageDraw                       
+000185ab  __TI_decompress_none              
+000185b9  __TI_zero_init                    
+000185c5  ResetISR                          
+000185d1  GrMapISO8859_1_Unicode            
+000185d9  GrContextFontSet                  
+000185df  __TI_decompress_rle24             
+000185e5  _system_pre_init                  
+000188e5  SysCtlClockGet                    
+00018acd  GPIOPadConfigSet                  
+00018b7d  I2CMasterInitExpClk               
+00018bd1  SysCtlPeripheralEnable            
+00018c21  SSIConfigSetExpClk                
+00018c6d  GPIOPinConfigure                  
+00018cb5  GPIODirModeSet                    
+00018cdd  GPIOPinTypeADC                    
+00018cf9  GPIOPinTypeGPIOOutput             
+00018d15  GPIOPinTypeI2C                    
+00018d31  GPIOPinTypeSSI                    
+00018d4d  I2CMasterErr                      
+00018d65  SSIDataGetNonBlocking             
+00018d79  SysCtlGPIOAHBEnable               
+00018d89  SSIDataGet                        
+00018d97  I2CMasterBusy                     
+00018da3  SSIDataPut                        
+00018daf  I2CMasterEnable                   
+00018db9  SSIEnable                         
+00018dc3  I2CMasterSlaveAddrSet             
+00018dcd  SysCtlDelay                       
+00018dd3  GPIOPinWrite                      
+00018dd9  I2CMasterControl                  
+00018ddd  I2CMasterDataGet                  
+00018de1  I2CMasterDataPut                  
+00018e98  __TI_Handler_Table_Base           
+00018ea4  __TI_Handler_Table_Limit          
+00018eb0  __TI_CINIT_Base                   
+00018ec0  __TI_CINIT_Limit                  
+20000000  daily_humidity_time               
+200000a8  daily_temp_time                   
+20000150  loaded_daily_humidity_time        
+200001f8  loaded_daily_temp_time            
+200002a0  daily_humidity                    
+20000300  daily_temp                        
+20000360  daily_temp_to_save                
+200003c0  f_loaded_daily_temp               
+20000420  loaded_daily_humidity             
+20000480  loaded_daily_temp                 
+200004e0  pressure_history_data_time        
+2000053c  loaded_weekly_humidity_time       
+20000570  loaded_weekly_max_temp_time       
+200005a4  loaded_weekly_min_temp_time       
+200005d8  pressure_history_loaded_data      
+2000060c  pressure_history_loaded_data_time 
+20000640  weekly_humidity_time              
+20000674  weekly_max_temp_time              
+200006a8  weekly_min_temp_time              
+200006dc  sContext                          
+20000728  loaded_weekly_humidity            
+20000744  loaded_weekly_max_temp            
+20000760  loaded_weekly_min_temp            
+2000077c  weekly_humidity                   
+20000798  weekly_max_temp                   
+200007b4  weekly_min_temp                   
+200007d0  weekly_temp_to_save               
+200007ec  displayed_data                    
+20000808  firstX                            
+2000080c  firstY                            
+20000814  g_u32TouchDebouncer               
+20000818  g_i16TouchX                       
+2000081a  g_i16TouchY                       
+2000081c  __stack                           
+20000a1c  __STACK_TOP                       
+2000101c  __STACK_END                       
+200010d0  _Denorm                           
+200010e0  _Eps                              
+200010f0  _Hugeval                          
+20001100  _Inf                              
+20001110  _Nan                              
+20001120  _Snan                             
+20001130  _Rteps                            
+20001140  _Xbig                             
+20001148  _Zero                             
+20001150  day_of_the_week                   
+20001198  pressure_history_data             
+200011f0  screen                            
+200011f4  screen_0b                         
+200011f5  screen_1b                         
+200011f6  screen_changed                    
+200011f7  dialog_answer                     
+200011f8  daily_flag                        
+200011f9  power_off                         
+200011fa  first_measurement                 
+200011fb  config                            
+200011fc  pressure_graph_ready              
+200011fd  phd_save_locked                   
+20001200  last_hour_temp                    
+20001204  temp_measurements_counter         
+20001208  last_hour_humidity                
+2000120c  humidity_measurements_counter     
+20001210  clear_weekly_humidity_data_flag   
+20001211  finger_down                       
+20001214  g_enuTSState                      
+20001216  g_i16X                            
+20001218  g_i16Y                            
+2000121a  g_u8State                         
+2000121c  g_floTouchCalibrationA            
+20001220  g_floTouchCalibrationB            
+20001224  g_floTouchCalibrationC            
+20001228  g_floTouchCalibrationD            
+2000122c  g_u8TouchCallbackSemaphore        
+20001230  _tz                               
+20001240  _lock                             
+20001244  _unlock                           
+20001248  __TI_cleanup_ptr                  
+2000124c  __TI_dtors_ptr                    
+20001250  _Fenv                             
+20001254  _Tls_setup__Fenv                  
+20001258  _Errno                            
+2000125c  main_func_sp                      
+ffffffff  __binit__                         
+ffffffff  __c_args__                        
+ffffffff  binit                             
+UNDEFED   SHT$$INIT_ARRAY$$Base             
+UNDEFED   SHT$$INIT_ARRAY$$Limit            
+
+[308 symbols]
