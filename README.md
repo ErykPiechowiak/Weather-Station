@@ -1,6 +1,7 @@
 # Weather-Station
 Microcontroller based weather monitoring system
 
+This project was finished in January 2021 as part of my engineering thesis.
 
 In this project a microcontroller was used to create a weather station which allows the user to control its interface with gestures. 
 The weather station allows monitoring of the current temperature, atmospheric pressure and humidity values, as well as previewing and analysing gathered data.
