@@ -1,16 +1,10 @@
-# Weather-Station
+##  Microcontroller based weather monitoring system
 
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
 
 ## General info
-
-The application is a simulation of a wireless network based on the CSMA/CA protocol. 
-Used simulation method: ABC.
-
-Microcontroller based weather monitoring system
-
 This project was finished in January 2021 as part of my engineering thesis.
 
 In this project a microcontroller was used to create a weather station which allows the user to control its interface with gestures. 
@@ -22,6 +16,8 @@ Demonstration video: https://drive.google.com/file/d/1c9Z6uB6EpTKl8SJMBl1BelDhtP
 
 ## Technologies 
 
-Programming language: C
-Standards used to communicate with peripheral devices: I2C, SPI
-IDE: Code Composer Studio 6.1.0
+* Programming language: C
+* Standards used to communicate with peripheral devices: I2C, SPI
+* IDE: Code Composer Studio 6.1.0
+
+
