@@ -1,5 +1,4 @@
 # Weather-Station
-# Wireless-Network-Simulation
 
 ## Table of contents
 * [General info](#general-info)
