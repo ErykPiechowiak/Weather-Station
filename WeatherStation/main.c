@@ -64,9 +64,8 @@ tBoolean dialog_answer = false;
 tBoolean daily_flag = true; //if false weekly_temp is displayed
 tBoolean power_off = false; //is set to true if power button was pressed
 
-/*
- * BME280
- */
+
+//BME280
 tBoolean first_measurement = true; //first bme280 measurement is invalid
 tBoolean config = false; //by default config is set to false which means that bme280 wasn't earlier configured
 
@@ -106,9 +105,9 @@ uint32_t loaded_weekly_min_temp[7];
 RTC_Time loaded_weekly_max_temp_time[7];
 RTC_Time loaded_weekly_min_temp_time[7];
 
-/*
- * daily humidity
- */
+
+//daily humidity
+ 
 uint32_t last_hour_humidity = 0;
 int humidity_measurements_counter = 1;
 uint32_t daily_humidity[24];
@@ -116,9 +115,9 @@ RTC_Time daily_humidity_time[24];
 uint32_t loaded_daily_humidity[24];
 RTC_Time loaded_daily_humidity_time[24];
 
-/*
- * weekly humidity
- */
+
+ //weekly humidity
+ 
 uint32_t weekly_humidity[7];
 RTC_Time weekly_humidity_time[7];
 uint32_t loaded_weekly_humidity[7];
@@ -138,9 +137,9 @@ char day_of_the_week[7][10] = {
 
 struct displayed_data displayed_data;
 
-/*
- * TOUCHSCREEN DATA
- */
+
+ //TOUCHSCREEN DATA
+ 
 int32_t firstX; // finger down x position
 int32_t firstY; // finger down y position
 tBoolean finger_down = false;
@@ -149,8 +148,6 @@ tBoolean finger_down = false;
 //TOUCHSCREEN//
 int32_t TouchCallback(uint32_t ulMessage, int32_t lX, int32_t lY)
 {
-//  i32CenterX = lX;
-//  i32CenterY = lY;
 	if (ulMessage == WIDGET_MSG_PTR_DOWN && (screen == 1 || screen == 2) && lY > 60 && lY < 200)
 	{
 		firstX = lX;
@@ -364,9 +361,9 @@ void load_temp_or_humidity(unsigned int block_nr, int n, uint32_t *data_array, R
 }
 
 
-/*
- * Checks if the loaded temperature data is from the current day
- */
+
+//Checks if the loaded temperature data is from the current day
+
 void check_loaded_daily_temp()
 {
 	int i;
@@ -386,9 +383,9 @@ void check_loaded_daily_temp()
 }
 
 
-/*
- * Checks if the loaded humidity data is from the current day
- */
+
+ //Checks if the loaded humidity data is from the current day
+
 void check_loaded_daily_humidity()
 {
 	int i;
@@ -589,7 +586,6 @@ void draw_temperature_graph(int n, float temp_data[], tBoolean daily)
 		int rect_height;
 		float compare_value;
 		float temp;
-		//int i_min = (step_value+step) * 10;
 		float i_min = step_value+step;
 		int range;
 		if (!screen_1b)
@@ -609,15 +605,12 @@ void draw_temperature_graph(int n, float temp_data[], tBoolean daily)
 			compare_value = 0;
 			if (temp_data[i] != 100)
 			{
-				//temp = temp_data[i] * 10;
 				temp = temp_data[i];
 				while (temp > i_min + compare_value)
 				{
 					compare_value += step;
 					rect_height += 13;
 				}
-				//if (temp != i_min + (compare_value - (step * 10)))
-					//rect_height += 2;
 				rect.sYMin = rect.sYMax - rect_height;
 				GrRectFill(&sContext, &rect);
 			}
@@ -632,7 +625,6 @@ void draw_temperature_graph(int n, float temp_data[], tBoolean daily)
 		y_position = 200;
 		for (i = 0; i < 7; i++)
 		{
-			//sprintf(fullText, "%d", day_of_the_week[i]);
 			GrStringDrawCentered(&sContext, day_of_the_week[i], -1, x_position, y_position, 0);
 			x_position += 42;
 		}
@@ -673,7 +665,6 @@ void draw_temperature_graph(int n, float temp_data[], tBoolean daily)
 		int rect_height;
 		int compare_value;
 		int temp;
-		//int i_min = min * 10;
 		int i_min = (step_value+step) * 10;
 		int range;
 		range = 7;
@@ -915,9 +906,9 @@ void draw_humidity_graph(int n, uint32_t humidity_data[], tBoolean daily)
 	}
 }
 
-/*
- * This function is used to clear last day temperature data, when the new day starts
- */
+
+//This function is used to clear last day temperature data, when the new day starts
+
 void clear_daily_temp_data()
 {
 	int i;
@@ -931,9 +922,9 @@ void clear_daily_temp_data()
 }
 
 
-/*
- * This function is used to clear last day humidity data, when the new day starts
- */
+
+//This function is used to clear last day humidity data, when the new day starts
+
 void clear_daily_humidity_data()
 {
 	int i;
@@ -947,9 +938,8 @@ void clear_daily_humidity_data()
 }
 
 
-/*
- * This function is used every hour to update daily humidity data
- */
+//This function is used every hour to update daily humidity data
+
 void update_daily_humidity_data(uint8_t day,uint8_t hour,uint8_t month, uint8_t year)
 {
 	last_hour_humidity = last_hour_humidity / humidity_measurements_counter;
@@ -973,9 +963,9 @@ void update_daily_humidity_data(uint8_t day,uint8_t hour,uint8_t month, uint8_t 
 }
 
 
-/*
- * This function is used every hour to update daily temperature data
- */
+
+//This function is used every hour to update daily temperature data
+
 void update_daily_temp_data(uint8_t day,uint8_t hour,uint8_t month, uint8_t year)
 {
 	last_hour_temp = last_hour_temp / temp_measurements_counter;
@@ -1003,9 +993,9 @@ void update_daily_temp_data(uint8_t day,uint8_t hour,uint8_t month, uint8_t year
 }
 
 
-/*
- * This function is used at the begining of the new day to update max temperature data
- */
+
+// This function is used at the begining of the new day to update max temperature data
+
 void update_weekly_max_temp_data()
 {
 	float temp = 100;
@@ -1039,9 +1029,9 @@ void update_weekly_max_temp_data()
 }
 
 
-/*
- * This function is used at the begining of the new day to update min temperature data
- */
+
+//This function is used at the begining of the new day to update min temperature data
+
 void update_weekly_min_temp_data()
 {
 	float temp = 100;
@@ -1075,9 +1065,9 @@ void update_weekly_min_temp_data()
 }
 
 
-/*
- * This function is used at the begining of the new day to update mean humidity data
- */
+
+//This function is used at the begining of the new day to update mean humidity data
+
 void update_weekly_humidity_data()
 {
 	uint32_t mean_humidity = 0;
@@ -1173,9 +1163,9 @@ tBoolean check_dow(uint8_t current_dow, uint8_t past_dow)
 }
 
 
-/*
- * This function is used to check if the loaded weekly temperature data is from the current week
- */
+
+//This function is used to check if the loaded weekly temperature data is from the current week
+
 void check_loaded_weekly_max_temp(float *weekly_temp, RTC_Time *weekly_temp_time)
 {
 	int i;
@@ -1206,9 +1196,9 @@ void check_loaded_weekly_max_temp(float *weekly_temp, RTC_Time *weekly_temp_time
 }
 
 
-/*
- * This function is used to check if the loaded weekly min temperature data is from the current week
- */
+
+//This function is used to check if the loaded weekly min temperature data is from the current week
+
 void check_loaded_weekly_min_temp(float *weekly_temp, RTC_Time *weekly_temp_time)
 {
 	int i;
@@ -1238,9 +1228,9 @@ void check_loaded_weekly_min_temp(float *weekly_temp, RTC_Time *weekly_temp_time
 	}
 }
 
-/*
- * This function is used to check if the loaded weekly humidity data is from the current week
- */
+
+// This function is used to check if the loaded weekly humidity data is from the current week
+
 void check_loaded_weekly_humidity()
 {
 	int i;
@@ -1421,18 +1411,18 @@ void load_pressure_history_data(unsigned int block_addr, int n, uint32_t *data_a
 }
 
 
-/*
- * returns time difference in seconds
- */
+
+//returns time difference in seconds
+
 int compare_time(uint32_t current_time , uint32_t past_time)
 {
 	int diff = current_time - past_time;
 	return diff;
 }
 
-/*
- * This function checks if the loaded data contains pressure values from the last 12 hours
- */
+
+//This function checks if the loaded data contains pressure values from the last 12 hours
+
 void check_loaded_pressure_history_data()
 {
 	struct tm time;
@@ -1464,9 +1454,9 @@ void check_loaded_pressure_history_data()
 	}
 }
 
-/*
- * This function is used every hour to update pressure_history_data array
- */
+
+//This function is used every hour to update pressure_history_data array
+
 void update_pressure_history_data()
 {
 	int i;
@@ -1621,9 +1611,9 @@ void draw_pressure_history_graph()
 }
 
 
-/*
- * This function erases outdated sensor data from the display
- */
+
+//This function erases outdated sensor data from the display
+
 void erase_outdated_sensor_data()
 {
 	char fullText[100];
@@ -1651,9 +1641,9 @@ void erase_outdated_sensor_data()
 }
 
 
-/*
- * This function erases outdated time from the display
- */
+
+// This function erases outdated time from the display
+
 void erase_outdated_time()
 {
 	char fullText[100];
@@ -1665,9 +1655,9 @@ void erase_outdated_time()
 }
 
 
-/*
- * This function erases outdated date from the display
- */
+
+//This function erases outdated date from the display
+
 void erase_outdated_date()
 {
 	char fullText[100];
@@ -1684,9 +1674,9 @@ void erase_outdated_date()
 }
 
 
-/*
- * This function draws current temperature, humidity and pressure values on the display
- */
+
+//This function draws current temperature, humidity and pressure values on the display
+
 void draw_sensor_data(float temp, uint32_t pressure, uint32_t humidity)
 {
 	char fullText[100];
@@ -1745,9 +1735,9 @@ void draw_sensor_data(float temp, uint32_t pressure, uint32_t humidity)
 }
 
 
-/*
- * This function displays current time and checks if an hour has passed
- */
+
+//This function displays current time and checks if an hour has passed
+
 void check_time(RTC_Time *time)
 {
 	if ((time->minutes != displayed_data.minutes || screen_changed) && screen == 0) {
@@ -1861,9 +1851,9 @@ void print_sensor_data(struct bme280_data *comp_data)
 }
 
 
-/*
- * This function gets current temperature, pressure and humidity data from the BME280
- */
+
+// This function gets current temperature, pressure and humidity data from the BME280
+
 int8_t stream_sensor_data_forced_mode(struct bme280_dev *dev)
 {
 	int8_t rslt;
@@ -1906,9 +1896,9 @@ int8_t stream_sensor_data_forced_mode(struct bme280_dev *dev)
 
 
 
-/*
- * delay used in i2c communication
- */
+
+// delay used in i2c communication
+
 void delay_ms(uint32_t period, void *intf_ptr)
 {
 	if(period>=1000)
@@ -1921,9 +1911,9 @@ void delay_ms(uint32_t period, void *intf_ptr)
 }
 
 
-/*
- * Function used to write data to the BME280 registers
- */
+
+//Function used to write data to the BME280 registers
+
 int8_t i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr)
 {
     int8_t rslt = 0; /* Return 0 for Success, non-zero for failure */
@@ -1970,9 +1960,9 @@ int8_t i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *
 }
 
 
-/*
- * Function used to read data from the BME280 registers
- */
+
+//Function used to read data from the BME280 registers
+
 int8_t i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr)
     {
 
@@ -2105,9 +2095,9 @@ void draw_pressure_info()
 }
 
 
-/*
- * This function draws the default screen 1 or screen 2
- */
+
+// This function draws the default screen 1 or screen 2
+
 void draw_graph_screen()
 {
 	tRectangle rect;
@@ -2161,9 +2151,9 @@ void draw_graph_screen()
 }
 
 
-/*
- * This function draws on the display selected screen
- */
+
+//This function draws on the display selected screen
+
 void draw_background(int screen)
 {
 	//Home screen
@@ -2211,9 +2201,9 @@ void draw_background(int screen)
 }
 
 
-/*
- * This function is used when the power off button is pressed
- */
+
+//This function is used when the power off button is pressed
+
 void power_off_dialog()
 {
 	tRectangle rect;
@@ -2327,9 +2317,9 @@ int main(void)
 	}
 
 		check_time(&updated_time);
-	/*
-	 * first measurement is innacurate, so it's nessesary to make another one
-	 */
+
+	//first measurement is innacurate, so it's nessesary to make another one
+
 	int i;
 	for(i=0;i<2;i++)
 	{
@@ -2339,40 +2329,40 @@ int main(void)
 	phd_save_locked = false; //pressure data can be saved on the microSD card
 	//clear_loaded_data();
 
-	/*
-	 * load pressure history data
-	 */
+
+	// load pressure history data
+	
 	load_pressure_history_data(1, 52, pressure_history_loaded_data, pressure_history_loaded_data_time);
 	check_loaded_pressure_history_data();
 	draw_pressure_history_graph();
 
-	/*
-	 * load daily_temp
-	 */
+	
+	//load daily_temp
+	
 	load_temp_or_humidity(3, 24, loaded_daily_temp, loaded_daily_temp_time,true);
 	check_loaded_daily_temp();
 
-	/*
-	 * load weekly_max_temp
-	 */
+	
+	// load weekly_max_temp
+	
 	load_temp_or_humidity(5, 7, loaded_weekly_max_temp, loaded_weekly_max_temp_time,false);
 	check_loaded_weekly_max_temp(weekly_max_temp, weekly_max_temp_time);
 
-	/*
-	 * load daily humidity
-	 */
+	
+	// load daily humidity
+	
 	load_temp_or_humidity(7,24,loaded_daily_humidity, loaded_daily_humidity_time, true);
 	check_loaded_daily_humidity();
 
-	/*
-	 * load weekly humidity
-	 */
+	
+	//load weekly humidity
+	
 	load_temp_or_humidity(9, 7, loaded_weekly_humidity, loaded_weekly_humidity_time,false);
 	check_loaded_weekly_humidity();
 
-	/*
-	 * load weekly min temp
-	 */
+	
+	// load weekly min temp
+	
 	load_temp_or_humidity(11,7, loaded_weekly_min_temp, loaded_weekly_min_temp_time,false);
 	check_loaded_weekly_min_temp(weekly_min_temp, weekly_min_temp_time);
 
@@ -2383,9 +2373,8 @@ int main(void)
 
 	//when it's the first iteration of the main loop, don't communicate with BME280, because it can freeze the program
 	tBoolean first_iteration = true;
-	/*
-	 * Main loop
-	 */
+	
+	 //Main loop
 	for(;;)
 	{
 		//Update the display if a screen was changed
@@ -2410,9 +2399,9 @@ int main(void)
 			{
 				bme280_start_measurement = true;
 			}
-			/*
-			 * daily temp check
-			 */
+			
+			// daily temp check
+			
 			if(updated_time.minutes%5 == 0 && measure_temp)
 			{
 				measure_temp = false;
